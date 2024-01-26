@@ -28,7 +28,7 @@ import matplotlib.figure as fg
 
 import logging
 from colorama import Fore, Style
-# from visualstim import VisualStim
+from visualstim import VisualStim
 
 import scipy.io, pickle
 
