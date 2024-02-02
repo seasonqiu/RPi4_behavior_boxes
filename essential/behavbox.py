@@ -106,11 +106,11 @@ class BehavBox(object):
         ###############################################################################################
         # IR detection - for nosepoke
         ###############################################################################################
-        self.IR_rx1 = Button(5, None, True)  # None, True inverts the signal so poke=True, no-poke=False
-        self.IR_rx2 = Button(6, None, True)
-        self.IR_rx3 = Button(12, None, True)
-        self.IR_rx4 = Button(13, None, True)  # (optional, reserved for future use
-        self.IR_rx5 = Button(16, None, True)  # (optional, reserved for future use
+        self.IR_rx1 = Button(5)  # None, True inverts the signal so poke=True, no-poke=False
+        self.IR_rx2 = Button(6)
+        self.IR_rx3 = Button(12)
+        self.IR_rx4 = Button(13)  # (optional, reserved for future use
+        self.IR_rx5 = Button(16)  # (optional, reserved for future use
 
         # link nosepoke event detections to callbacks
         self.IR_rx1.when_pressed = self.IR_1_entry
