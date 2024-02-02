@@ -32,8 +32,8 @@ from colorama import Fore, Style
 
 import scipy.io, pickle
 
-import Treadmill
-import ADS1x15
+# import Treadmill
+# import ADS1x15
 
 # for the flipper
 from FlipperOutput import FlipperOutput
