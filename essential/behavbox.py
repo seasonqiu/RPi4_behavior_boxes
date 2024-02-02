@@ -126,9 +126,9 @@ class BehavBox(object):
         ###############################################################################################
         # close circuit detection - for ground pin circuit lick detection
         ###############################################################################################
-        self.lick1 = Button(26, None, True)
-        self.lick2 = Button(27, None, True)
-        self.lick3 = Button(15, None, True)
+        self.lick1 = Button(26)
+        self.lick2 = Button(27)
+        self.lick3 = Button(15)
         #self.reserved_rx1 = Button(13, None, True)  # for mitch
         #self.reserved_rx2 = Button(16, None, True)  # for mitch
         #
