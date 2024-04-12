@@ -18,13 +18,13 @@ signal.signal(signal.SIGINT, signal_handler)
 
 base_path = '~/test'
 camId = str(0)
-VIDEO_FILE_NAME = base_path + "_cam" + camId + "_output_" + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".h264"
+# VIDEO_FILE_NAME = base_path + "_cam" + camId + "_output_" + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".h264"
 
 camera = Picamera2()
 video_config = camera.create_video_configuration()
 camera.configure(video_config)
 encoder = H264Encoder(bitrate=10000000)
-output = VIDEO_FILE_NAME
+output = "test.h264"
 camera.start_recording(encoder, output)
 # time.sleep(10)
 # picam2.stop_recording()
