@@ -14,15 +14,15 @@ def signal_handler(signum, frame):
     sys.exit(0)
 
 camera = Picamera2()
-# camera_config = camera.create_preview_configuration()
-# camera.configure(camera_config)
-camera.resolution = (640, 480)
-camera.framerate = 30
-
-camera.annotate_text = "PREVIEW ONLY"
-camera.annotate_text_size = 60
+camera_config = camera.create_preview_configuration()
+camera.configure(camera_config)
+# camera.resolution = (640, 480)
+# camera.framerate = 30
+#
+# camera.annotate_text = "PREVIEW ONLY"
+# camera.annotate_text_size = 60
 
 camera.start_preview(Preview.DRM)
-
+camera.start()
 signal.signal(signal.SIGINT, signal_handler)
 signal.pause()
