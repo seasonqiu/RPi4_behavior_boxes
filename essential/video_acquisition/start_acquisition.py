@@ -167,7 +167,7 @@ class TimestampOutput(object):
         self._stop = 1
         self._video.close()
 
-with Picamera2 as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
+with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
 
     # camera.brightness = BRIGHTNESS
     # camera.contrast = CONTRAST
