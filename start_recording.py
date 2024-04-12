@@ -24,7 +24,7 @@ camera = Picamera2()
 video_config = camera.create_video_configuration()
 camera.configure(video_config)
 encoder = H264Encoder(bitrate=10000000)
-output = "~/test.h264"
+output = "/home/pi/test.h264"
 camera.start_preview(Preview.DRM)
 camera.start()
 time.sleep(2)
