@@ -208,7 +208,7 @@ with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) a
 
         last_frame = 0
         while True:
-            camera.wait_recording(0.005)
+            # camera.wait_recording(0.005)
             frame = output._timestamps[-1][0]
             if frame != None:
                 if frame > last_frame:
