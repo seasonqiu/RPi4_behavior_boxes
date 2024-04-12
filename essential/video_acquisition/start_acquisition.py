@@ -193,12 +193,17 @@ with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) a
 
     # GPIO.add_event_callback(pin_flipper, output.flipper_timestamps_write)
     try:
+        video_config = camera.create_video_configuration()
+        camera.configure(video_config)
+        encoder = H264Encoder(bitrate=10000000)
         camera.start_preview(Preview.DRM)
+        camera.start()
+        time.sleep(2)
         # Construct an instance of our custom output splitter with a filename  and a connected socket
         print('Starting Recording')
-        camera.start_recording(output, format='h264')
+        camera.start_recording(encoder, output)
         print('Started Recording')
-        camera.annotate_text_size = 10
+        # camera.annotate_text_size = 10
 
         last_frame = 0
         while True:
@@ -227,3 +232,5 @@ with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) a
         print(e)
         GPIO.cleanup()
         sys.exit(0)
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.pause()
