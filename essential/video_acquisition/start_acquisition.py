@@ -167,21 +167,21 @@ class TimestampOutput(object):
         self._stop = 1
         self._video.close()
 
-with Picamera2(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
+with Picamera2 as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
 
-    camera.brightness = BRIGHTNESS
-    camera.contrast = CONTRAST
-    camera.sharpness = SHARPNESS
-    camera.video_stabilization = VIDEO_STABILIZATION
-    camera.hflip = False
-    camera.vflip = False
+    # camera.brightness = BRIGHTNESS
+    # camera.contrast = CONTRAST
+    # camera.sharpness = SHARPNESS
+    # camera.video_stabilization = VIDEO_STABILIZATION
+    # camera.hflip = False
+    # camera.vflip = False
 
     #warm-up time to camera to set its initial settings
     time.sleep(2)
 
-    camera.exposure_mode = EXPOSURE_MODE
-    camera.awb_mode = AWB_MODE
-    camera.awb_gains = AWB_GAINS
+    # camera.exposure_mode = EXPOSURE_MODE
+    # camera.awb_mode = AWB_MODE
+    # camera.awb_gains = AWB_GAINS
 
     #time to let camera change parameters according to exposure and AWB
     time.sleep(2)
