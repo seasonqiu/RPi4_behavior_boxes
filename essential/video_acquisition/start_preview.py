@@ -2,7 +2,7 @@
 
 import signal
 import sys
-from picamera import PiCamera
+from picamera2 import Picamera2, Preview
 
 def signal_handler(signum, frame):
     # Call the video record function
@@ -13,14 +13,16 @@ def signal_handler(signum, frame):
     camera.close()
     sys.exit(0)
 
-camera = PiCamera()
+camera = Picamera2()
+camera_config = camera.create_preview_configuration()
+camera.configure(camera_config)
 camera.resolution = (640, 480)
 camera.framerate = 30
 
 camera.annotate_text = "PREVIEW ONLY"
 camera.annotate_text_size = 60
 
-camera.start_preview()
+camera.start_preview(Preview.DRM)
 
 signal.signal(signal.SIGINT, signal_handler)
 signal.pause()
