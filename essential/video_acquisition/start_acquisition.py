@@ -191,7 +191,7 @@ with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) a
 
     output = TimestampOutput(camera, VIDEO_FILE_NAME, TIMESTAMP_FILE_NAME, FLIPPER_FILE_NAME)
 
-    GPIO.add_event_callback(pin_flipper, output.flipper_timestamps_write)
+    # GPIO.add_event_callback(pin_flipper, output.flipper_timestamps_write)
     try:
         camera.start_preview(Preview.DRM)
         # Construct an instance of our custom output splitter with a filename  and a connected socket
