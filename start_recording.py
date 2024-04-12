@@ -1,5 +1,5 @@
 from picamera2.encoders import H264Encoder
-from picamera2 import Picamera2
+from picamera2 import Picamera2, Preview
 import time
 import datetime as dt
 import sys
@@ -24,7 +24,12 @@ camera = Picamera2()
 video_config = camera.create_video_configuration()
 camera.configure(video_config)
 encoder = H264Encoder(bitrate=10000000)
-output = "test.h264"
+output = "~/test.h264"
+camera.start_preview(Preview.DRM)
+camera.start()
+time.sleep(2)
 camera.start_recording(encoder, output)
+signal.signal(signal.SIGINT, signal_handler)
+signal.pause()
 # time.sleep(10)
 # picam2.stop_recording()
