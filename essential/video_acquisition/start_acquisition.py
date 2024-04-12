@@ -5,7 +5,7 @@ from gpiozero import Button
 import io
 import time
 import datetime as dt
-from picamera import PiCamera
+from picamera2 import Picamera2, Preview
 from threading import Thread, Event
 from queue import Queue, Empty
 import sys
@@ -167,7 +167,7 @@ class TimestampOutput(object):
         self._stop = 1
         self._video.close()
 
-with PiCamera(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
+with Picamera2(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
 
     camera.brightness = BRIGHTNESS
     camera.contrast = CONTRAST
@@ -193,7 +193,7 @@ with PiCamera(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) as camera:
 
     GPIO.add_event_callback(pin_flipper, output.flipper_timestamps_write)
     try:
-        camera.start_preview()
+        camera.start_preview(Preview.DRM)
         # Construct an instance of our custom output splitter with a filename  and a connected socket
         print('Starting Recording')
         camera.start_recording(output, format='h264')
