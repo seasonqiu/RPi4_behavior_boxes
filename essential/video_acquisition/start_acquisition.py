@@ -68,7 +68,7 @@ pin_flipper = 4
 GPIO.setup(pin_flipper, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 #add event detection (both falling edge and rising edge) script to GPIO pin
-GPIO.add_event_detect(pin_flipper, GPIO.BOTH, bouncetime=BOUNCETIME)
+# GPIO.add_event_detect(pin_flipper, GPIO.BOTH, bouncetime=BOUNCETIME)
 
 #video output thread to save video file
 class VideoOutput(Thread):
