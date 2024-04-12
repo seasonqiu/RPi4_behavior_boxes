@@ -1,6 +1,7 @@
 from picamera2.encoders import H264Encoder
 from picamera2 import Picamera2
 import time
+import datetime as dt
 import sys
 import os
 import signal
@@ -15,11 +16,15 @@ def signal_handler(signum, frame):
     sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
 
-picam2 = Picamera2()
-video_config = picam2.create_video_configuration()
-picam2.configure(video_config)
+base_path = '~/test'
+camId = str(0)
+VIDEO_FILE_NAME = base_path + "_cam" + camId + "_output_" + str(dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".h264"
+
+camera = Picamera2()
+video_config = camera.create_video_configuration()
+camera.configure(video_config)
 encoder = H264Encoder(bitrate=10000000)
-output = "test.h264"
-picam2.start_recording(encoder, output)
+output = VIDEO_FILE_NAME
+camera.start_recording(encoder, output)
 # time.sleep(10)
 # picam2.stop_recording()
