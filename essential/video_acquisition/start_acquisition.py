@@ -6,6 +6,7 @@ import io
 import time
 import datetime as dt
 from picamera2 import Picamera2, Preview
+from picamera2.encoders import H264Encoder
 from threading import Thread, Event
 from queue import Queue, Empty
 import sys
