@@ -202,7 +202,7 @@ with Picamera2() as camera: #(resolution=(WIDTH, HEIGHT), framerate=FRAMERATE) a
         time.sleep(2)
         # Construct an instance of our custom output splitter with a filename  and a connected socket
         print('Starting Recording')
-        camera.start_recording(encoder, output)
+        camera.start_recording(encoder, VIDEO_FILE_NAME)
         print('Started Recording')
         # camera.annotate_text_size = 10
 
